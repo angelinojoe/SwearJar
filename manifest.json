@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Swearjar",
+  "version": "1.0",
+  "description": "Clean up your vocabulary while helping a good cause!",
+
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "jar-icon.png"
+  },
+
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
