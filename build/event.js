@@ -63,7 +63,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var store = (0, _redux.createStore)(_swearCount2.default, {});
+	var store = (0, _redux.createStore)(_swearCount2.default);
 
 	(0, _reactChromeRedux.wrapStore)(store, {
 	  portName: 'swear'
@@ -1300,7 +1300,7 @@
 	  swearCount: 0
 	};
 
-	exports.default = function () {
+	var swearCount = function swearCount() {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
 	  var action = arguments[1];
 
@@ -1312,6 +1312,8 @@
 	      return state;
 	  }
 	};
+
+	exports.default = swearCount;
 
 /***/ },
 /* 25 */

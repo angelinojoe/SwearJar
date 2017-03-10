@@ -21551,14 +21551,14 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'cussCount' },
-	          'Cuss Count: '
+	          'Cuss Count: ',
+	          this.props.swearCount
 	        ),
 	        _react2.default.createElement(
 	          'button',
@@ -21578,7 +21578,11 @@
 	  return App;
 	}(_react.Component);
 
-	var mapStateToProps = null;
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    swearCount: state.swearCount
+	  };
+	};
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(App);
 

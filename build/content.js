@@ -25088,7 +25088,11 @@
 
 	  _createClass(App, [{
 	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
+	    value: function componentDidMount() {
+	      document.addEventListener('input', function () {
+	        console.log('detected!');
+	      });
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {

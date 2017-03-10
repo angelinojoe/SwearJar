@@ -8,7 +8,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-
+    document.addEventListener('input', () => {
+      console.log('detected!');
+    })
   }
 
   render() {
