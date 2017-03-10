@@ -6,7 +6,7 @@ import {Store} from 'react-chrome-redux';
 import App from './components/app/App';
 
 const proxyStore = new Store({
-  portName: 'swears'
+  portName: 'swear'
 });
 
 const anchor = document.createElement('div');

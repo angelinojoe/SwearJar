@@ -63,14 +63,14 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _reactChromeRedux = __webpack_require__(213);
+	var _reactChromeRedux = __webpack_require__(210);
 
 	var _reactRedux = __webpack_require__(180);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var proxyStore = new _reactChromeRedux.Store({
-	  portName: 'swears'
+	  portName: 'swear'
 	});
 
 	(0, _reactDom.render)(_react2.default.createElement(
@@ -21531,18 +21531,6 @@
 
 	var _reactRedux = __webpack_require__(180);
 
-	var _emojiData = __webpack_require__(210);
-
-	var _emojiData2 = _interopRequireDefault(_emojiData);
-
-	var _Emojis = __webpack_require__(211);
-
-	var _Emojis2 = _interopRequireDefault(_Emojis);
-
-	var _FilterInput = __webpack_require__(212);
-
-	var _FilterInput2 = _interopRequireDefault(_FilterInput);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21554,79 +21542,33 @@
 	var App = function (_Component) {
 	  _inherits(App, _Component);
 
-	  function App(props) {
+	  function App() {
 	    _classCallCheck(this, App);
 
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-	    _this.state = {
-	      copied: false,
-	      inputValue: ''
-	    };
-	    _this.copyToClipboard = _this.copyToClipboard.bind(_this);
-	    _this.handleChange = _this.handleChange.bind(_this);
-	    return _this;
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
 	  }
 
 	  _createClass(App, [{
-	    key: 'copyToClipboard',
-	    value: function copyToClipboard(emoji) {
-	      var textField = document.createElement('textarea');
-	      textField.innerText = emoji.name;
-	      document.body.appendChild(textField);
-	      textField.select();
-	      document.execCommand('copy');
-	      textField.remove();
-
-	      this.setState({ copied: true });
-	    }
-	  }, {
-	    key: 'handleChange',
-	    value: function handleChange(event) {
-	      var inputValue = event.target.value;
-	      this.setState({ inputValue: inputValue });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _state = this.state,
-	          copied = _state.copied,
-	          inputValue = _state.inputValue;
-
-	      var filteredEmojis = _emojiData2.default.filter(function (emoji) {
-	        return emoji.name.match(inputValue);
-	      });
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'header',
+	          'div',
 	          null,
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Click to add an emoji!'
-	          )
+	          'Cuss Count: '
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'container-fluid' },
-	          _react2.default.createElement(_FilterInput2.default, { handleChange: this.handleChange, inputValue: inputValue }),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            copied ? _react2.default.createElement(
-	              'div',
-	              { id: 'copied' },
-	              _react2.default.createElement(
-	                'h4',
-	                null,
-	                'Copied!'
-	              )
-	            ) : null
-	          ),
-	          _react2.default.createElement(_Emojis2.default, { emojis: filteredEmojis, handleClick: this.copyToClipboard })
+	          null,
+	          'Pay Up $$$'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'It\'s F*#%ing Urgent!'
 	        )
 	      );
 	    }
@@ -23388,256 +23330,6 @@
 
 /***/ },
 /* 210 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var emojis = [{
-	  id: 1,
-	  name: ':all_the_things:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1450319440/23/all_the_things.jpg?1450319440'
-	}, {
-	  id: 2,
-	  name: ':bananadance:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1450694616/220/bananadance.gif?1450694616'
-	}, {
-	  id: 3,
-	  name: ':deal_with_it_parrot:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1471119455/979/deal_with_it_parrot.gif?1471119455'
-	}, {
-	  id: 4,
-	  name: ':doge:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1457563042/312/doge.png?1457563042'
-	}, {
-	  id: 5,
-	  name: ':eevee:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1479080836/1363/eevee.gif?1479080836'
-	}, {
-	  id: 6,
-	  name: ':facepalm:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1450319441/51/facepalm.png?1450319441'
-	}, {
-	  id: 7,
-	  name: ':fb-laugh:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1464135056/462/fb-laugh.gif?1464135056'
-	}, {
-	  id: 8,
-	  name: ':fb-wow:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1464135017/461/fb-wow.gif?1464135017'
-	}, {
-	  id: 9,
-	  name: ':grumpycat:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1458326965/319/grumpycat.png?1458326965'
-	}, {
-	  id: 10,
-	  name: ':hula:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1475851620/1221/hula.gif?1475851620'
-	}, {
-	  id: 11,
-	  name: ':nyancat_big:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1450458551/184/nyancat_big.gif?1450458551'
-	}, {
-	  id: 12,
-	  name: ':party_parrot:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1471119458/990/party_parrot.gif?1471119458'
-	}, {
-	  id: 13,
-	  name: ':pokeball:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1450464069/186/pokeball.png?1450464069'
-	}, {
-	  id: 14,
-	  name: ':slam:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1463601732/420/slam.gif?1463601732'
-	}, {
-	  id: 15,
-	  name: ':success-kid:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1453406830/264/success-kid.png?1453406830'
-	}, {
-	  id: 16,
-	  name: ':animatechris:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/animatechris/f108c6d428b99b06.gif'
-	}, {
-	  id: 17,
-	  name: ':eric:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/eric/99745b0fd281f1ef.jpg'
-	}, {
-	  id: 18,
-	  name: ':sam:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/sam/ca894cd7236e9c19.jpg'
-	}, {
-	  id: 19,
-	  name: ':ming:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/ming/118ea0ff75f447dd.jpg'
-	}, {
-	  id: 20,
-	  name: ':pizzaspin:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1467915398/645/pizzaspin.gif?1467915398'
-	}, {
-	  id: 21,
-	  name: ':millhouse:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/millhouse/8cebaa9724fd60b2.jpg'
-	}, {
-	  id: 22,
-	  name: ':notlikethis:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/notlikethis/071a4f87dab4ad36.png'
-	}, {
-	  id: 23,
-	  name: ':biblethump:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/biblethump/ca18fd3f2a3ccafb.png'
-	}, {
-	  id: 24,
-	  name: ':bubba:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/bubba/44c55e953b854e7f.png'
-	}, {
-	  id: 25,
-	  name: ':dinostomp:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/dinostomp/9ccd7ddd8a06a63c.gif'
-	}, {
-	  id: 26,
-	  name: ':fullstack:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/fullstack/04f411012b2a0ec8.png'
-	}, {
-	  id: 27,
-	  name: ':github:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/github/14e2efc7ae34986e.png'
-	}, {
-	  id: 28,
-	  name: ':react:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/react/532b8888d17bda2e.png'
-	}, {
-	  id: 29,
-	  name: ':zombie:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1466718697/581/zombie.gif?1466718697'
-	}, {
-	  id: 30,
-	  name: ':carlton:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1450319453/122/carlton.gif?1450319453'
-	}, {
-	  id: 31,
-	  name: ':darth_vader:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1450319458/131/darth_vader.png?1450319458'
-	}, {
-	  id: 32,
-	  name: ':challenge_accepted:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1463601502/415/challenge_accepted.jpg?1463601502'
-	}, {
-	  id: 33,
-	  name: ':epic_win:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1463602516/440/epic_win.png?1463602516'
-	}, {
-	  id: 34,
-	  name: ':not_sure:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1463602283/435/not_sure.jpg?1463602283'
-	}, {
-	  id: 35,
-	  name: ':troll:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1463602125/429/troll.png?1463602125'
-	}, {
-	  id: 36,
-	  name: ':y_u_no:',
-	  image: 'https://emojis.slackmojis.com/emojis/images/1463602086/428/y_u_no.png?1463602086'
-	}, {
-	  id: 37,
-	  name: ':bluesteel:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/bluesteel/3302898b8e5b3424.png'
-	}, {
-	  id: 38,
-	  name: ':david-swirl:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/david-swirl/18ad91d6e8c38bde.gif'
-	}, {
-	  id: 39,
-	  name: ':gabriel-swirl:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/gabriel-swirl/5e527af175a09f3d.gif'
-	}, {
-	  id: 40,
-	  name: ':joe-swirl:',
-	  image: 'https://emoji.slack-edge.com/T024FPYBQ/joe-swirl/a7cf2867d62eb300.gif'
-	}];
-
-	exports.default = emojis;
-
-/***/ },
-/* 211 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function Emojis(props) {
-	  var emojis = props.emojis,
-	      handleClick = props.handleClick;
-
-
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "row" },
-	    emojis.map(function (emoji) {
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "col-xs-3 emoji-container", key: emoji.id },
-	        _react2.default.createElement(
-	          "a",
-	          { href: "#", onClick: function onClick() {
-	              return handleClick(emoji);
-	            } },
-	          _react2.default.createElement("img", { src: emoji.image, width: "48", height: "48" })
-	        )
-	      );
-	    })
-	  );
-	}
-
-	exports.default = Emojis;
-
-/***/ },
-/* 212 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function FilterInput(props) {
-	  var handleChange = props.handleChange,
-	      inputValue = props.inputValue;
-
-
-	  return _react2.default.createElement(
-	    "form",
-	    { className: "form-group" },
-	    _react2.default.createElement("input", {
-	      onChange: handleChange,
-	      value: inputValue,
-	      className: "form-control",
-	      placeholder: "Search"
-	    })
-	  );
-	}
-
-	exports.default = FilterInput;
-
-/***/ },
-/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23647,15 +23339,15 @@
 	});
 	exports.alias = exports.wrapStore = exports.Store = undefined;
 
-	var _Store = __webpack_require__(214);
+	var _Store = __webpack_require__(211);
 
 	var _Store2 = _interopRequireDefault(_Store);
 
-	var _wrapStore = __webpack_require__(258);
+	var _wrapStore = __webpack_require__(255);
 
 	var _wrapStore2 = _interopRequireDefault(_wrapStore);
 
-	var _alias = __webpack_require__(259);
+	var _alias = __webpack_require__(256);
 
 	var _alias2 = _interopRequireDefault(_alias);
 
@@ -23666,7 +23358,7 @@
 	exports.alias = _alias2.default;
 
 /***/ },
-/* 214 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23677,11 +23369,11 @@
 	  value: true
 	});
 
-	var _assignIn = __webpack_require__(215);
+	var _assignIn = __webpack_require__(212);
 
 	var _assignIn2 = _interopRequireDefault(_assignIn);
 
-	var _constants = __webpack_require__(257);
+	var _constants = __webpack_require__(254);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23835,12 +23527,12 @@
 	exports.default = Store;
 
 /***/ },
-/* 215 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObject = __webpack_require__(216),
-	    createAssigner = __webpack_require__(229),
-	    keysIn = __webpack_require__(242);
+	var copyObject = __webpack_require__(213),
+	    createAssigner = __webpack_require__(226),
+	    keysIn = __webpack_require__(239);
 
 	/**
 	 * This method is like `_.assign` except that it iterates over own and
@@ -23881,11 +23573,11 @@
 
 
 /***/ },
-/* 216 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignValue = __webpack_require__(217),
-	    baseAssignValue = __webpack_require__(218);
+	var assignValue = __webpack_require__(214),
+	    baseAssignValue = __webpack_require__(215);
 
 	/**
 	 * Copies properties of `source` to `object`.
@@ -23927,11 +23619,11 @@
 
 
 /***/ },
-/* 217 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseAssignValue = __webpack_require__(218),
-	    eq = __webpack_require__(228);
+	var baseAssignValue = __webpack_require__(215),
+	    eq = __webpack_require__(225);
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -23961,10 +23653,10 @@
 
 
 /***/ },
-/* 218 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var defineProperty = __webpack_require__(219);
+	var defineProperty = __webpack_require__(216);
 
 	/**
 	 * The base implementation of `assignValue` and `assignMergeValue` without
@@ -23992,10 +23684,10 @@
 
 
 /***/ },
-/* 219 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(220);
+	var getNative = __webpack_require__(217);
 
 	var defineProperty = (function() {
 	  try {
@@ -24009,11 +23701,11 @@
 
 
 /***/ },
-/* 220 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsNative = __webpack_require__(221),
-	    getValue = __webpack_require__(227);
+	var baseIsNative = __webpack_require__(218),
+	    getValue = __webpack_require__(224);
 
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -24032,13 +23724,13 @@
 
 
 /***/ },
-/* 221 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(222),
-	    isMasked = __webpack_require__(224),
-	    isObject = __webpack_require__(223),
-	    toSource = __webpack_require__(226);
+	var isFunction = __webpack_require__(219),
+	    isMasked = __webpack_require__(221),
+	    isObject = __webpack_require__(220),
+	    toSource = __webpack_require__(223);
 
 	/**
 	 * Used to match `RegExp`
@@ -24085,11 +23777,11 @@
 
 
 /***/ },
-/* 222 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseGetTag = __webpack_require__(190),
-	    isObject = __webpack_require__(223);
+	    isObject = __webpack_require__(220);
 
 	/** `Object#toString` result references. */
 	var asyncTag = '[object AsyncFunction]',
@@ -24128,7 +23820,7 @@
 
 
 /***/ },
-/* 223 */
+/* 220 */
 /***/ function(module, exports) {
 
 	/**
@@ -24165,10 +23857,10 @@
 
 
 /***/ },
-/* 224 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var coreJsData = __webpack_require__(225);
+	var coreJsData = __webpack_require__(222);
 
 	/** Used to detect methods masquerading as native. */
 	var maskSrcKey = (function() {
@@ -24191,7 +23883,7 @@
 
 
 /***/ },
-/* 225 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var root = __webpack_require__(192);
@@ -24203,7 +23895,7 @@
 
 
 /***/ },
-/* 226 */
+/* 223 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -24235,7 +23927,7 @@
 
 
 /***/ },
-/* 227 */
+/* 224 */
 /***/ function(module, exports) {
 
 	/**
@@ -24254,7 +23946,7 @@
 
 
 /***/ },
-/* 228 */
+/* 225 */
 /***/ function(module, exports) {
 
 	/**
@@ -24297,11 +23989,11 @@
 
 
 /***/ },
-/* 229 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseRest = __webpack_require__(230),
-	    isIterateeCall = __webpack_require__(238);
+	var baseRest = __webpack_require__(227),
+	    isIterateeCall = __webpack_require__(235);
 
 	/**
 	 * Creates a function like `_.assign`.
@@ -24340,12 +24032,12 @@
 
 
 /***/ },
-/* 230 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var identity = __webpack_require__(231),
-	    overRest = __webpack_require__(232),
-	    setToString = __webpack_require__(234);
+	var identity = __webpack_require__(228),
+	    overRest = __webpack_require__(229),
+	    setToString = __webpack_require__(231);
 
 	/**
 	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -24363,7 +24055,7 @@
 
 
 /***/ },
-/* 231 */
+/* 228 */
 /***/ function(module, exports) {
 
 	/**
@@ -24390,10 +24082,10 @@
 
 
 /***/ },
-/* 232 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(233);
+	var apply = __webpack_require__(230);
 
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
@@ -24432,7 +24124,7 @@
 
 
 /***/ },
-/* 233 */
+/* 230 */
 /***/ function(module, exports) {
 
 	/**
@@ -24459,11 +24151,11 @@
 
 
 /***/ },
-/* 234 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseSetToString = __webpack_require__(235),
-	    shortOut = __webpack_require__(237);
+	var baseSetToString = __webpack_require__(232),
+	    shortOut = __webpack_require__(234);
 
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
@@ -24479,12 +24171,12 @@
 
 
 /***/ },
-/* 235 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var constant = __webpack_require__(236),
-	    defineProperty = __webpack_require__(219),
-	    identity = __webpack_require__(231);
+	var constant = __webpack_require__(233),
+	    defineProperty = __webpack_require__(216),
+	    identity = __webpack_require__(228);
 
 	/**
 	 * The base implementation of `setToString` without support for hot loop shorting.
@@ -24507,7 +24199,7 @@
 
 
 /***/ },
-/* 236 */
+/* 233 */
 /***/ function(module, exports) {
 
 	/**
@@ -24539,7 +24231,7 @@
 
 
 /***/ },
-/* 237 */
+/* 234 */
 /***/ function(module, exports) {
 
 	/** Used to detect hot functions by number of calls within a span of milliseconds. */
@@ -24582,13 +24274,13 @@
 
 
 /***/ },
-/* 238 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(228),
-	    isArrayLike = __webpack_require__(239),
-	    isIndex = __webpack_require__(241),
-	    isObject = __webpack_require__(223);
+	var eq = __webpack_require__(225),
+	    isArrayLike = __webpack_require__(236),
+	    isIndex = __webpack_require__(238),
+	    isObject = __webpack_require__(220);
 
 	/**
 	 * Checks if the given arguments are from an iteratee call.
@@ -24618,11 +24310,11 @@
 
 
 /***/ },
-/* 239 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(222),
-	    isLength = __webpack_require__(240);
+	var isFunction = __webpack_require__(219),
+	    isLength = __webpack_require__(237);
 
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -24657,7 +24349,7 @@
 
 
 /***/ },
-/* 240 */
+/* 237 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -24698,7 +24390,7 @@
 
 
 /***/ },
-/* 241 */
+/* 238 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -24726,12 +24418,12 @@
 
 
 /***/ },
-/* 242 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayLikeKeys = __webpack_require__(243),
-	    baseKeysIn = __webpack_require__(254),
-	    isArrayLike = __webpack_require__(239);
+	var arrayLikeKeys = __webpack_require__(240),
+	    baseKeysIn = __webpack_require__(251),
+	    isArrayLike = __webpack_require__(236);
 
 	/**
 	 * Creates an array of the own and inherited enumerable property names of `object`.
@@ -24764,15 +24456,15 @@
 
 
 /***/ },
-/* 243 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseTimes = __webpack_require__(244),
-	    isArguments = __webpack_require__(245),
-	    isArray = __webpack_require__(247),
-	    isBuffer = __webpack_require__(248),
-	    isIndex = __webpack_require__(241),
-	    isTypedArray = __webpack_require__(250);
+	var baseTimes = __webpack_require__(241),
+	    isArguments = __webpack_require__(242),
+	    isArray = __webpack_require__(244),
+	    isBuffer = __webpack_require__(245),
+	    isIndex = __webpack_require__(238),
+	    isTypedArray = __webpack_require__(247);
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -24819,7 +24511,7 @@
 
 
 /***/ },
-/* 244 */
+/* 241 */
 /***/ function(module, exports) {
 
 	/**
@@ -24845,10 +24537,10 @@
 
 
 /***/ },
-/* 245 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsArguments = __webpack_require__(246),
+	var baseIsArguments = __webpack_require__(243),
 	    isObjectLike = __webpack_require__(198);
 
 	/** Used for built-in method references. */
@@ -24887,7 +24579,7 @@
 
 
 /***/ },
-/* 246 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseGetTag = __webpack_require__(190),
@@ -24911,7 +24603,7 @@
 
 
 /***/ },
-/* 247 */
+/* 244 */
 /***/ function(module, exports) {
 
 	/**
@@ -24943,11 +24635,11 @@
 
 
 /***/ },
-/* 248 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(192),
-	    stubFalse = __webpack_require__(249);
+	    stubFalse = __webpack_require__(246);
 
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -24988,7 +24680,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(201)(module)))
 
 /***/ },
-/* 249 */
+/* 246 */
 /***/ function(module, exports) {
 
 	/**
@@ -25012,12 +24704,12 @@
 
 
 /***/ },
-/* 250 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsTypedArray = __webpack_require__(251),
-	    baseUnary = __webpack_require__(252),
-	    nodeUtil = __webpack_require__(253);
+	var baseIsTypedArray = __webpack_require__(248),
+	    baseUnary = __webpack_require__(249),
+	    nodeUtil = __webpack_require__(250);
 
 	/* Node.js helper references. */
 	var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -25045,11 +24737,11 @@
 
 
 /***/ },
-/* 251 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseGetTag = __webpack_require__(190),
-	    isLength = __webpack_require__(240),
+	    isLength = __webpack_require__(237),
 	    isObjectLike = __webpack_require__(198);
 
 	/** `Object#toString` result references. */
@@ -25111,7 +24803,7 @@
 
 
 /***/ },
-/* 252 */
+/* 249 */
 /***/ function(module, exports) {
 
 	/**
@@ -25131,7 +24823,7 @@
 
 
 /***/ },
-/* 253 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(193);
@@ -25160,12 +24852,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(201)(module)))
 
 /***/ },
-/* 254 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(223),
-	    isPrototype = __webpack_require__(255),
-	    nativeKeysIn = __webpack_require__(256);
+	var isObject = __webpack_require__(220),
+	    isPrototype = __webpack_require__(252),
+	    nativeKeysIn = __webpack_require__(253);
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -25199,7 +24891,7 @@
 
 
 /***/ },
-/* 255 */
+/* 252 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -25223,7 +24915,7 @@
 
 
 /***/ },
-/* 256 */
+/* 253 */
 /***/ function(module, exports) {
 
 	/**
@@ -25249,7 +24941,7 @@
 
 
 /***/ },
-/* 257 */
+/* 254 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25266,7 +24958,7 @@
 	var STATE_TYPE = exports.STATE_TYPE = 'chromex.state';
 
 /***/ },
-/* 258 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25275,7 +24967,7 @@
 	  value: true
 	});
 
-	var _constants = __webpack_require__(257);
+	var _constants = __webpack_require__(254);
 
 	/**
 	 * Responder for promisified results
@@ -25392,7 +25084,7 @@
 	};
 
 /***/ },
-/* 259 */
+/* 256 */
 /***/ function(module, exports) {
 
 	"use strict";

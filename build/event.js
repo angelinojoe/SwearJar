@@ -55,18 +55,18 @@
 
 	var _redux = __webpack_require__(2);
 
-	var _countSwears = __webpack_require__(24);
+	var _swearCount = __webpack_require__(24);
 
-	var _countSwears2 = _interopRequireDefault(_countSwears);
+	var _swearCount2 = _interopRequireDefault(_swearCount);
 
 	var _reactChromeRedux = __webpack_require__(25);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var store = (0, _redux.createStore)(_countSwears2.default, {});
+	var store = (0, _redux.createStore)(_swearCount2.default, {});
 
 	(0, _reactChromeRedux.wrapStore)(store, {
-	  portName: 'swears'
+	  portName: 'swear'
 	});
 
 /***/ },
@@ -1307,7 +1307,7 @@
 	  var newState = Object.assign({}, state);
 	  switch (action.type) {
 	    case 'ADD_COUNT':
-	      return newState.swearCount + action.swearCount;
+	      return newState + action.swearCount;
 	    default:
 	      return state;
 	  }

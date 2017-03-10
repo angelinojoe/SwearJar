@@ -1,13 +1,17 @@
 {
   "manifest_version": 2,
-  "name": "Swearjar",
+  "name": "SwearJar",
   "version": "1.0",
-  "description": "Clean up your vocabulary while helping a good cause!",
 
+  "description": "Clean up your vocabulary while helping a good cause!",
+  "icons": {
+    //"128": "jar-icon.png"
+  },
 
   "browser_action": {
-    "default_popup": "popup.html",
-    "default_icon": "jar-icon.png"
+    "default_title": "Actions",
+    //"default_icon": "jar-icon.png",
+    "default_popup": "popup.html"
   },
 
   "permissions": [
@@ -16,7 +20,7 @@
   ],
 
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["event.js"],
     "persistent": true
   },
 

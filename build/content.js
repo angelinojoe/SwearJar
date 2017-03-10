@@ -70,7 +70,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var proxyStore = new _reactChromeRedux.Store({
-	  portName: 'swears'
+	  portName: 'swear'
 	});
 
 	var anchor = document.createElement('div');
@@ -25092,23 +25092,7 @@
 
 	  _createClass(App, [{
 	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      _emojiData2.default.forEach(function (emoji) {
-	        return convertToEmoji(emoji.name, emoji.image);
-	      });
-
-	      function convertToEmoji(shortName, image) {
-	        var emoji = '<img src=' + image + ' width=\'32\' height=\'32\'>';
-	        var page = document.body.innerHTML;
-
-	        while (page.indexOf(shortName) >= 0) {
-	          var i = page.indexOf(shortName);
-	          var j = shortName.length;
-	          page = page.substr(0, i) + emoji + page.substr(i + j);
-	          document.body.innerHTML = page;
-	        }
-	      }
-	    }
+	    value: function componentDidMount() {}
 	  }, {
 	    key: 'render',
 	    value: function render() {

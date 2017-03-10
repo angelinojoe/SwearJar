@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
 
   entry: [
-    './popup/index.js'
+    './popup/src/scripts/index.js'
   ],
 
   output: {
@@ -23,6 +23,7 @@ module.exports = {
         test: /\.(jsx|js)?$/,
         loader: 'babel',
         exclude: /(node_modules)/,
+        include: path.join(__dirname, 'src'),
         query: {
           presets: ['es2015', 'react']
         }

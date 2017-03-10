@@ -3,10 +3,10 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  const newState = Object.assign({}, state);
+  const newState = Object.assign({}, state)
   switch (action.type) {
     case 'ADD_COUNT':
-      return newState.swearCount + action.swearCount;
+      return newState + action.swearCount;
     default:
       return state;
   }
