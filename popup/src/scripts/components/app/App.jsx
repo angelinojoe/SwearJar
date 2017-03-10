@@ -8,9 +8,9 @@ class App extends Component {
 
     return (
       <div>
-        <div>Cuss Count: </div>
-        <div>Pay Up $$$</div>
-        <div>It's F*#%ing Urgent!</div>
+        <div id="cussCount">Cuss Count: </div>
+        <button id="payUp">Pay Up $$$</button><br />
+        <button id="urgent">It's F*#%ing Urgent!</button>
       </div>
     );
   }

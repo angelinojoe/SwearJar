@@ -21557,17 +21557,18 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { id: 'cussCount' },
 	          'Cuss Count: '
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          null,
+	          'button',
+	          { id: 'payUp' },
 	          'Pay Up $$$'
 	        ),
+	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
-	          'div',
-	          null,
+	          'button',
+	          { id: 'urgent' },
 	          'It\'s F*#%ing Urgent!'
 	        )
 	      );
