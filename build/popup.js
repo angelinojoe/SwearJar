@@ -21545,31 +21545,57 @@
 	  function App() {
 	    _classCallCheck(this, App);
 
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+	    _this.onUrgentClick = _this.onUrgentClick.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(App, [{
+	    key: 'onUrgentClick',
+	    value: function onUrgentClick(event) {
+	      this.props.dispatch({ type: 'TOGGLE_URGENT', isUrgent: event.target.value });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var image;
+	      //create custom progress bar by rendering different images based on how much is in 'jar'
+	      if (this.props.swearCount === 0) {
+	        image = 'jar-0.jpeg';
+	      } else if (this.props.swearCount > 0 && this.props.swearCount <= 5) {
+	        image = 'jar-25.jpeg';
+	      } else if (this.props.swearCount > 5 && this.props.swearCount <= 10) {
+	        image = 'jar-50.jpeg';
+	      } else if (this.props.swearCount > 10 && this.props.swearCount <= 15) {
+	        image = 'jar-75.jpeg';
+	      } else {
+	        image = 'jar-100.jpeg';
+	      }
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'cussCount' },
-	          'Cuss Count: ',
+	          'Cuss Count: $',
 	          this.props.swearCount
 	        ),
+	        _react2.default.createElement('img', { src: image, width: '200' }),
 	        _react2.default.createElement(
 	          'button',
 	          { id: 'payUp' },
 	          'Pay Up $$$'
 	        ),
 	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
+	        this.props.isUrgent === 'false' ? _react2.default.createElement(
 	          'button',
-	          { id: 'urgent' },
+	          { onClick: this.onUrgentClick, value: 'true', id: 'urgent' },
 	          'It\'s F*#%ing Urgent!'
+	        ) : _react2.default.createElement(
+	          'button',
+	          { onClick: this.onUrgentClick, value: 'false', id: 'notUrgent' },
+	          'I\'m Ready To Behave'
 	        )
 	      );
 	    }
@@ -21580,7 +21606,8 @@
 
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    swearCount: state.swearCount
+	    swearCount: state.swearCount,
+	    isUrgent: state.isUrgent
 	  };
 	};
 

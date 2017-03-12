@@ -25069,6 +25069,10 @@
 
 	var _reactRedux = __webpack_require__(179);
 
+	var _urbanDictionary = __webpack_require__(257);
+
+	var _urbanDictionary2 = _interopRequireDefault(_urbanDictionary);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25083,15 +25087,52 @@
 	  function App(props) {
 	    _classCallCheck(this, App);
 
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.checkForSwears = _this.checkForSwears.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(App, [{
+	    key: 'checkForSwears',
+	    value: function checkForSwears(phrase) {
+	      phrase = phrase.toLowerCase();
+	      //regex to split by a space or a hyphen
+	      var count = 0;
+	      var phraseArr = phrase.split(/-|\s/g);
+	      phraseArr.forEach(function (word) {
+	        if (_urbanDictionary2.default.includes(word)) {
+	          count++;
+	        }
+	      });
+	      if (count > 0) {
+	        alert('You swore ' + count + ' time(s), hope it was worth it, potty-mouth');
+	        this.props.dispatch({ type: 'ADD_COUNT', swearCount: count });
+	      }
+	      count = 0;
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      document.addEventListener('input', function () {
-	        console.log('detected!');
-	      });
+	      var _this2 = this;
+
+	      //add event listeners to all inputs and textareas on a page so that when it loses focus, takes whats typed and checks for swears
+	      var inputs = document.getElementsByTagName('input');
+	      for (var i = 0; i < inputs.length; i++) {
+	        inputs[i].addEventListener('focusout', function (event) {
+	          if (event.target.value && _this2.props.isUrgent === 'false') {
+	            _this2.checkForSwears(event.target.value);
+	          }
+	        });
+	      }
+	      var textAreas = document.getElementsByTagName('textarea');
+	      for (var j = 0; j < textAreas.length; j++) {
+	        textAreas[j].addEventListener('focusout', function (event) {
+	          if (event.target.value && _this2.props.isUrgent === 'true') {
+	            _this2.checkForSwears(event.target.value);
+	          }
+	        });
+	      }
 	    }
 	  }, {
 	    key: 'render',
@@ -25103,9 +25144,26 @@
 	  return App;
 	}(_react.Component);
 
-	var mapStateToProps = null;
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    isUrgent: state.isUrgent
+	  };
+	};
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(App);
+
+/***/ },
+/* 257 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var urbanDictionary = ['darn'];
+
+	exports.default = urbanDictionary;
 
 /***/ }
 /******/ ]);

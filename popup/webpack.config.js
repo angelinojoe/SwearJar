@@ -13,7 +13,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss', '.json'],
+    extensions: ['', '.js', '.jsx', '.scss', '.css', '.json'],
     modulesDirectories: ['node_modules']
   },
 
