@@ -13,7 +13,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss', '.css', '.json'],
+    extensions: ['', '.js', '.jsx', '.scss', '.css', '.json', '.jpeg'],
     modulesDirectories: ['node_modules']
   },
 
@@ -27,7 +27,8 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
-      }
+      },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' }
     ]
   }
 };

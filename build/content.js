@@ -25133,6 +25133,8 @@
 	          }
 	        });
 	      }
+
+	      //add donation amount if you are one of the donation pages
 	    }
 	  }, {
 	    key: 'render',

@@ -21547,7 +21547,14 @@
 
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
+	    _this.state = {
+	      payClicked: 'false'
+	    };
+	    _this.unicef = 'https://www.unicefusa.org/donate/help-save-childrens-lives/29161?ms=ref_dig_2015_web_header_donate';
+	    _this.aspca = 'https://secure.aspca.org/donate/donate?ms=wb_top_homepage-donate&initialms=wb_top_homepage-donate&pcode=WEBMEMBER&lpcode=WEBGUARD';
 	    _this.onUrgentClick = _this.onUrgentClick.bind(_this);
+	    _this.onPayClick = _this.onPayClick.bind(_this);
+	    _this.onImageClick = _this.onImageClick.bind(_this);
 	    return _this;
 	  }
 
@@ -21557,8 +21564,24 @@
 	      this.props.dispatch({ type: 'TOGGLE_URGENT', isUrgent: event.target.value });
 	    }
 	  }, {
+	    key: 'onPayClick',
+	    value: function onPayClick() {
+	      this.setState({ payClicked: 'true' });
+	    }
+	  }, {
+	    key: 'onImageClick',
+	    value: function onImageClick(charity) {
+	      if (charity === 'aspca') {
+	        chrome.tabs.create({ active: true, url: this.aspca });
+	      } else {
+	        chrome.tabs.create({ active: true, url: this.unicef });
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var image;
 	      //create custom progress bar by rendering different images based on how much is in 'jar'
 	      if (this.props.swearCount === 0) {
@@ -21584,14 +21607,29 @@
 	        _react2.default.createElement('img', { src: image, width: '200' }),
 	        _react2.default.createElement(
 	          'button',
-	          { id: 'payUp' },
+	          { onClick: this.onPayClick, id: 'payUp' },
 	          'Pay Up $$$'
 	        ),
 	        _react2.default.createElement('br', null),
+	        this.state.payClicked === 'true' ? _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Select a Charity:'
+	          ),
+	          _react2.default.createElement('img', { src: 'aspca.png', width: '95', onClick: function onClick() {
+	              return _this2.onImageClick("aspca");
+	            } }),
+	          _react2.default.createElement('img', { src: 'unicef.png', width: '95', onClick: function onClick() {
+	              return _this2.onImageClick("unicef");
+	            } })
+	        ) : null,
 	        this.props.isUrgent === 'false' ? _react2.default.createElement(
 	          'button',
 	          { onClick: this.onUrgentClick, value: 'true', id: 'urgent' },
-	          'It\'s F*#%ing Urgent!'
+	          'It\'s Urgent!'
 	        ) : _react2.default.createElement(
 	          'button',
 	          { onClick: this.onUrgentClick, value: 'false', id: 'notUrgent' },
