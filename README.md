@@ -6,4 +6,6 @@ gives you an alert if you swore. When it's time to cash out, choose the charity 
 page. When you absolutely must swear, click the "it's urgent' button and your swears won't add to the jar, just choose "I'm ready to
 behave again" when you're ready to watch your language again. 
 
+VIDEO: https://youtu.be/xCp4_nXdq7s
+
 This project is a Work in Progress, more features to come!
